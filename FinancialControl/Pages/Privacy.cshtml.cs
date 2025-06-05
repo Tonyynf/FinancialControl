@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Globalization;
 
 namespace FinancialControl.Pages
 {
@@ -13,6 +14,8 @@ namespace FinancialControl.Pages
 
         public void OnGet()
         {
+            string dateTime = DateTime.Now.ToString("f", CultureInfo.CurrentCulture);
+            ViewData["DateTime"] = $"{dateTime}";
         }
     }
 
