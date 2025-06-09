@@ -1,0 +1,54 @@
+﻿@page
+@model FinancialControl.Pages.Transacoes.IndexModel
+
+@{
+    ViewData["Title"] = "Lista de transações";
+}
+
+<h1>Lista de transações</h1>
+
+<p>
+    <a asp-page="Create">Criar transação</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Transacao[0].Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transacao[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transacao[0].nameBank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transacao[0].Descricao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Transacao) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameBank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id" >Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id" >Detalhes</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id" >Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

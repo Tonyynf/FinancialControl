@@ -1,0 +1,49 @@
+﻿@page
+@model FinancialControl.Pages.Transacoes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Criar transação</h1>
+
+<h6>Abaixo preencha o formulário com as informações</h6>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Transacao.Valor" class="control-label">Valor:</label>
+                <input asp-for="Transacao.Valor" class="form-control" />
+                <span asp-validation-for="Transacao.Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transacao.ReleaseDate" class="control-label">Data:</label>
+                <input asp-for="Transacao.ReleaseDate" class="form-control" />
+                <span asp-validation-for="Transacao.ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transacao.nameBank" class="control-label">Nome do banco:</label>
+                <input asp-for="Transacao.nameBank" class="form-control" />
+                <span asp-validation-for="Transacao.nameBank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transacao.Descricao" class="control-label">Descrição:</label>
+                <input asp-for="Transacao.Descricao" class="form-control" />
+                <span asp-validation-for="Transacao.Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <br><input type="submit" value="Criar" class="btn btn-primary" /><br>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <br><a asp-page="Index">Voltar para lista</a><br>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
